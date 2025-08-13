@@ -19,9 +19,9 @@ public class Users {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         // Click through the menu
-        wait.until(ExpectedConditions.elementToBeClickable(By.id("nav_link_users"))).click();
-        wait.until(ExpectedConditions.elementToBeClickable(By.id("nav_manage_user_role_has_child"))).click();
-        wait.until(ExpectedConditions.elementToBeClickable(By.id("nav_add_user_role"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.id(""))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.id(""))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.id(""))).click();
 
         System.out.println("Done!");
        // driver.quit();
