@@ -24,6 +24,6 @@ public class Users {
         wait.until(ExpectedConditions.elementToBeClickable(By.id("nav_add_user_role"))).click();
 
         System.out.println("Done!");
-        driver.quit();
+       // driver.quit();
     }
 }
