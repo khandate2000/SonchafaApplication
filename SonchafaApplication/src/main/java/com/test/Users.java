@@ -10,7 +10,7 @@ public class Users {
     public static void main(String[] args) throws InterruptedException {
         // Create LoginPage object
         LoginPage lg = new LoginPage();
-       // lg.Loginpage();
+       
         
         // Call login method and get the same driver session
         WebDriver driver = lg.login(); // <-- Make sure LoginPage method returns WebDriver
