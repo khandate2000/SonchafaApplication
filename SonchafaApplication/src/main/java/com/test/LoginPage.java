@@ -1,14 +1,19 @@
 package com.test;
 
+import java.awt.Desktop.Action;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
@@ -36,6 +41,7 @@ public class LoginPage {
 		driver.findElement(By.id("password")).sendKeys("Anup@123");
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 
+		Thread.sleep(4000);
 		System.out.println("Page Title: " + driver.getTitle());
 		System.out.println("Current URL: " + driver.getCurrentUrl());
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -48,6 +54,26 @@ public class LoginPage {
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("nav_add_user_role"))).click();
 
 		System.out.println("Done!");
+		// Add User Role
+		driver.findElement(By.id("urt")).sendKeys("TestAuto");
+		Thread.sleep(2000);
+
+		Thread.sleep(2000);
+		WebElement dropdown = driver.findElement(By.xpath("//select[@id='urmuri']"));
+		Select drop = new Select(dropdown);
+		drop.selectByVisibleText("Customer");
+		Thread.sleep(2000);
+		
+		WebElement submitButton = driver.findElement(By.xpath("//button[contains(text(),'Submit')]"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", submitButton);
+		Thread.sleep(2000);
+		submitButton.click();
+		
+		driver.navigate().back();
+		driver.findElement(By.xpath("//a[normalize-space()='User Roles List']")).click();
+		
+		
+		
 	}
 
 }
